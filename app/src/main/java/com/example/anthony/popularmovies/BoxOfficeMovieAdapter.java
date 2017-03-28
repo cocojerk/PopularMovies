@@ -27,9 +27,14 @@ public class BoxOfficeMovieAdapter extends ArrayAdapter<BoxOfficeMovie>{
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.item_box_office_movie, parent, false);
         }
-        ImageView ivPosterImage = (ImageView) convertView.findViewById(R.id.ivPosterImage);
-        Picasso.with(getContext()).load(movie.getImageUrl()).into(ivPosterImage);
+        viewHolder holder = new viewHolder();
+        holder.poster = (ImageView) convertView.findViewById(R.id.ivPosterImage);
+        convertView.setTag(holder);
+
+        Picasso.with(getContext()).load(movie.getImageUrl()).into(holder.poster);
         return convertView;
     }
-
+ static class viewHolder{
+     ImageView poster;
+ }
 }

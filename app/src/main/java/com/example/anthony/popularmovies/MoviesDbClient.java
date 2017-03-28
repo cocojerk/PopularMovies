@@ -12,7 +12,7 @@ import org.json.JSONObject;
  */
 
 public class MoviesDbClient {
-    private final String API_KEY = "";
+    private final String API_KEY = "9af46be027cbd91e0825e7bdd57917fa";
     private final String API_BASE_URL ="https://api.themoviedb.org/3/movie/";
     private AsyncHttpClient client;
     public  void getPopularMovies(JsonHttpResponseHandler handler){

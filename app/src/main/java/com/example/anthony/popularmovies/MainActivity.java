@@ -40,9 +40,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         lvMovies = (GridView)findViewById(R.id.lvMovies);
+        adapterMovies = new BoxOfficeMovieAdapter(this, aMovies);
+        lvMovies.setAdapter(adapterMovies);
+
         if(isOnline()==true) {
-            adapterMovies = new BoxOfficeMovieAdapter(this, aMovies);
-            lvMovies.setAdapter(adapterMovies);
 
             adapterMovies.notifyDataSetChanged();
             try {
@@ -104,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
                         fetchBoxOfficeMovies();
                         adapterMovies.notifyDataSetChanged();
+                        setupMovieSelectedListener();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -116,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
                     fetchTopRated();
                     adapterMovies.notifyDataSetChanged();
+                    setupMovieSelectedListener();
                 }catch (JSONException e){
                     e.printStackTrace();
                 }

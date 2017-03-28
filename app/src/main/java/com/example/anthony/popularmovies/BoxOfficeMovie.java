@@ -1,5 +1,7 @@
 package com.example.anthony.popularmovies;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -13,8 +15,8 @@ import java.util.ArrayList;
  * Created by Anthony on 3/8/2017.
  */
 
-public class BoxOfficeMovie implements Serializable {
-    private static final long serialVersionUID = -8959832007991513854L;
+public class BoxOfficeMovie implements Parcelable {
+
     private String title;
     private String imageUrl;
     private String overview;
@@ -74,5 +76,42 @@ public class BoxOfficeMovie implements Serializable {
         }
         return movies;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.title);
+        dest.writeString(this.imageUrl);
+        dest.writeString(this.overview);
+        dest.writeDouble(this.vote_average);
+        dest.writeString(this.releaseDate);
+    }
+
+    public BoxOfficeMovie() {
+    }
+
+    protected BoxOfficeMovie(Parcel in) {
+        this.title = in.readString();
+        this.imageUrl = in.readString();
+        this.overview = in.readString();
+        this.vote_average = in.readDouble();
+        this.releaseDate = in.readString();
+    }
+
+    public static final Parcelable.Creator<BoxOfficeMovie> CREATOR = new Parcelable.Creator<BoxOfficeMovie>() {
+        @Override
+        public BoxOfficeMovie createFromParcel(Parcel source) {
+            return new BoxOfficeMovie(source);
+        }
+
+        @Override
+        public BoxOfficeMovie[] newArray(int size) {
+            return new BoxOfficeMovie[size];
+        }
+    };
 
 }
