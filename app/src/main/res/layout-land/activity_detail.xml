@@ -12,12 +12,13 @@
         android:id="@+id/ivPosterImage"
 
         android:layout_width="240dp"
-        android:layout_height="240dp"
-        android:adjustViewBounds="true"
-        android:src="@drawable/large_movie_poster"
-
+        android:layout_height="200dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:src="@drawable/large_movie_poster" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -50,10 +51,10 @@
 
         android:text="Critics Score: 93%"
         android:textSize="@dimen/text_size"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:layout_below="@+id/tvReleaseDate"
-        android:layout_alignStart="@+id/tvReleaseDate"
-        android:layout_alignLeft="@+id/tvReleaseDate" />
+        android:layout_toRightOf="@+id/ivPosterImage"
+        android:layout_toEndOf="@+id/ivPosterImage" />
 
 
 
@@ -65,27 +66,22 @@
         android:layout_height="wrap_content"
 
         android:id="@+id/scrollView2"
-        android:layout_marginTop="29dp"
         android:layout_below="@+id/ivPosterImage"
-        android:layout_centerHorizontal="true">
-        <LinearLayout
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+
+        <TextView
+            android:id="@+id/tvOverview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/tvOverview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="This is a story about a protagonist defeating an antagonist"
-                android:textSize="@dimen/text_size"
-                android:layout_below="@+id/ivPosterImage"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
-        </LinearLayout>
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/ivPosterImage"
+            android:layout_marginTop="24dp"
+            android:text="This is a story about a protagonist defeating an antagonist"
+            android:textSize="@dimen/text_size" />
 
     </ScrollView>
-
-
-
-
 </RelativeLayout>

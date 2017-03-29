@@ -24,8 +24,9 @@ public class Detail extends AppCompatActivity {
         tvRating = (TextView)findViewById(R.id.tvCriticsScore);
         tvSynopsis = (TextView)findViewById(R.id.tvOverview);
         BoxOfficeMovie movie = (BoxOfficeMovie)
-                getIntent().getSerializableExtra(MainActivity.MOVIE_DETAIL_KEY);
+                getIntent().getParcelableExtra(MainActivity.MOVIE_DETAIL_KEY);
         loadMovie(movie);
+
     }
 
     private void loadMovie(BoxOfficeMovie movie) {
